@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.llllluuusa.custom.framework</groupId>
+    <artifactId>custom-framework-dependencies</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <description>自定义框架的依赖管理</description>
+    <url>https://LLLLLuuusa.top</url>
+
+    <contributors>
+        <contributor>
+            <name>LLLLLuuusa</name>
+            <email>LLLLLuuusa@gmail.com</email>
+        </contributor>
+    </contributors>
+
+    <properties>
+        <!-- 全局设置 -->
+        <java.version>1.8</java.version>
+        <encoding.charset>UTF-8</encoding.charset>
+        <resource.delimiter>@</resource.delimiter>
+
+        <!-- Maven编译设置 -->
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
+
+        <!-- 编译字节码设置 -->
+        <project.build.sourceEncoding>${encoding.charset}</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>${encoding.charset}</project.reporting.outputEncoding>
+
+        <!-- 自定义框架依赖版本管理 -->
+        <custom-framework.version>1.0.0-SNAPSHOT</custom-framework.version>
+
+        <!-- 第三方包依赖版本管理 -->
+        <spring-boot.version>2.7.7</spring-boot.version>
+    </properties>
+
+    <!-- 全局依赖管理 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- spring依赖管理-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+
+        </dependencies>
+    </dependencyManagement>
+
+</project>
