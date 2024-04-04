@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.llllluuusa.custom.framework</groupId>
+        <artifactId>custom-framework</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../custom-framework</relativePath>
+    </parent>
+
+    <groupId>com.llllluuusa.custom.boot</groupId>
+    <artifactId>custom-spring-boot-dependencies</artifactId>
+    <packaging>pom</packaging>
+
+    <description>自定义框架的依赖管理</description>
+    <url>https://LLLLLuuusa.top</url>
+
+    <contributors>
+        <contributor>
+            <name>LLLLLuuusa</name>
+            <email>LLLLLuuusa@gmail.com</email>
+        </contributor>
+    </contributors>
+
+    <properties>
+        <!-- 自定义框架内部依赖 -->
+        <custom-framework.version>1.0.0-SNAPSHOT</custom-framework.version>
+        <custom-boot.version>1.0.0-SNAPSHOT</custom-boot.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- boot项目里有用到frame依赖,引入bom里的frame版本管理 -->
+            <dependency>
+                <groupId>com.llllluuusa.custom.framework</groupId>
+                <artifactId>custom-framework-bom</artifactId>
+                <version>${custom-framework.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- 自动配置版本管理 -->
+            <dependency>
+                <groupId>com.llllluuusa.custom.boot</groupId>
+                <artifactId>custom-spring-boot-autoconfigure</artifactId>
+                <version>${custom-boot.version}</version>
+            </dependency>
+
+            <!-- 自定义stater版本管理 -->
+            <dependency>
+                <groupId>com.llllluuusa.custom.boot</groupId>
+                <artifactId>custom-spring-boot-starter</artifactId>
+                <version>${custom-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.llllluuusa.custom.framework</groupId>
+                <artifactId>custom-framework-middleware</artifactId>
+                <version>${custom-framework.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>
