@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.llllluuusa.custom.boot</groupId>
+        <artifactId>custom-boot</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>custom-spring-boot-starters</artifactId>
+    <description>自定义的stater统一存放</description>
+    <packaging>pom</packaging>
+
+    <!-- 定义自定义的stater -->
+    <modules>
+        <!-- 核心依赖,包含spring所需依赖 -->
+        <module>custom-spring-boot-starter</module>
+        <!-- 封装的中间件 -->
+        <module>custom-spring-boot-starter-middleware</module>
+    </modules>
+
+</project>
