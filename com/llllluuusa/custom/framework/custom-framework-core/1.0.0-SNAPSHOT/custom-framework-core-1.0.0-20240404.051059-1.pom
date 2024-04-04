@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.llllluuusa.custom.framework</groupId>
+        <artifactId>custom-framework-bom</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../custom-framework-bom</relativePath>
+    </parent>
+
+    <artifactId>custom-framework-core</artifactId>
+
+    <description>
+        系统核心包，定义一些应用程序开发过程中使用到的一些常量以及底层系统常量以及引入一些常用工具类jar包[引入的包不得再有别的jar包依赖]。
+    </description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
