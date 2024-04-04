@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>com.llllluuusa.custom.boot</groupId>
+  <artifactId>custom-spring-boot-starter-middleware</artifactId>
+  <versioning>
+    <lastUpdated>20240404051446</lastUpdated>
+    <snapshot>
+      <timestamp>20240404.051446</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>1.0.0-20240404.051446-1</value>
+        <updated>20240404051446</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.0.0-20240404.051446-1</value>
+        <updated>20240404051446</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+  <version>1.0.0-SNAPSHOT</version>
+</metadata>
