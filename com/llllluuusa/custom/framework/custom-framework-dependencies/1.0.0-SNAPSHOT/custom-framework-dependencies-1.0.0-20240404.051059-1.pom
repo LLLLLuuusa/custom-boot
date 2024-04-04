@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.llllluuusa.custom.framework</groupId>
+    <artifactId>custom-framework-dependencies</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <description>自定义框架的依赖管理</description>
+    <url>https://LLLLLuuusa.top</url>
+
+    <contributors>
+        <contributor>
+            <name>LLLLLuuusa</name>
+            <email>LLLLLuuusa@gmail.com</email>
+        </contributor>
+    </contributors>
+
+    <properties>
+        <!-- 全局设置 -->
+        <java.version>1.8</java.version>
+        <encoding.charset>UTF-8</encoding.charset>
+        <resource.delimiter>@</resource.delimiter>
+
+        <!-- Maven编译设置 -->
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
+
+        <!-- 编译字节码设置 -->
+        <project.build.sourceEncoding>${encoding.charset}</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>${encoding.charset}</project.reporting.outputEncoding>
+
+        <!-- 自定义框架依赖版本管理 -->
+        <custom-framework.version>1.0.0-SNAPSHOT</custom-framework.version>
+
+        <!-- 第三方包依赖版本管理 -->
+        <spring-boot.version>2.7.7</spring-boot.version>
+
+        <!-- 此处配置的名称要和maven配置文件对应的serverId一致 -->
+        <github.global.server>github</github.global.server>
+    </properties>
+
+    <!-- 全局依赖管理 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- spring依赖管理-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+
+        </dependencies>
+    </dependencyManagement>
+
+    <distributionManagement>
+        <repository>
+            <id>maven.custom-boot</id>
+            <name>Local Staging Repository</name>
+            <url>file://${project.build.directory}/custom-boot</url>
+        </repository>
+    </distributionManagement>
+
+    <build>
+        <plugins>
+            <!--打包jar包含源码source -->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-source-plugin</artifactId>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>attach-sources</id>-->
+<!--                        <phase>package</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>jar-no-fork</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.2</version>
+                <configuration>
+                    <altDeploymentRepository>maven.custom-boot::default::file://${project.build.directory}/custom-boot</altDeploymentRepository>
+                </configuration>
+            </plugin>
+            <plugin>
+                <!-- Deploy the web site -->
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <version>0.12</version>
+                <configuration>
+                    <!-- Plugin configuration goes here -->
+                    <server>github</server>
+                    <!-- The commit message -->
+                    <message>init git maven repository</message>
+                    <noJekyll>true</noJekyll>
+                    <!-- The location where the site is uploaded -->
+                    <repositoryName>custom-boot</repositoryName> <!-- github repo name -->
+                    <repositoryOwner>LLLLLuuusa</repositoryOwner> <!-- organization or user name  -->
+                    <!-- Use merge or override the content -->
+                    <merge>true</merge>
+                    <outputDirectory>${project.build.directory}/custom-boot</outputDirectory>
+                    <branch>refs/heads/mvn</branch>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>deploy</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
